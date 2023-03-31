@@ -4,6 +4,6 @@ const { enroll, getEnrolledStudentByID } = require('../Controller/enrolledStuden
 const verifyJWT = require('../middleware/jwt.auth');
 
 router.post('/enrollStudent', verifyJWT, enroll);
-router.get('/enrollById/:id', getEnrolledStudentByID);
+router.get('/enrollById/:id', verifyJWT, getEnrolledStudentByID);
 
 module.exports = router
