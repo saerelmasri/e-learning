@@ -9,6 +9,9 @@ require('dotenv').config();
 const authRoute = require('./Routes/auth.route');
 app.use('/auth', authRoute);
 
+const courseRoute = require('./Routes/course.route');
+app.use('/course', courseRoute);
+
 app.listen((process.env.PORT), (err)=>{
     console.log('Listening in port', process.env.PORT);
     require('./config/db.connection');
