@@ -1,5 +1,4 @@
 const Course = require('../Model/course.model');
-const { all } = require('../Routes/course.route');
 
 const addCourse = async(req, res) => {
     try{

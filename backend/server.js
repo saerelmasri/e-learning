@@ -12,6 +12,9 @@ app.use('/auth', authRoute);
 const courseRoute = require('./Routes/course.route');
 app.use('/course', courseRoute);
 
+const enrollRoute = require('./Routes/enrollStudent.route');
+app.use('/enroll', enrollRoute);
+
 app.listen((process.env.PORT), (err)=>{
     console.log('Listening in port', process.env.PORT);
     require('./config/db.connection');
