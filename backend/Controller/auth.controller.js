@@ -1,5 +1,6 @@
 
 const User = require('../Model/user.model');
+const jwt = require('jsonwebtoken');
 
 const register = async(req, res) => {
     try{    
@@ -30,4 +31,35 @@ const register = async(req, res) => {
     }  
 }
 
-module.exports = register
+const login = async(req, res) => {
+    try{
+        const { email, password } = req.body;
+        const user = await User.findOne({ email });
+        //If the email doesn't exist
+        if(!user){
+            res.status(404).json({
+                message: 'Invalid Credentials'
+            });
+        }
+        const isMatch = user.matchPassword(password);
+        if(!isMatch){
+            res.status(404).json({
+                message: 'Invalid Credentials'
+            });
+        }
+        const token = jwt.sign({
+            id: user._id,
+            email: user.email
+        }, process.env.JWT_SECRET);
+
+        res.status(201).json({
+            token
+        })
+    }catch(err){
+        res.status(500).json({
+            message: err
+        })
+    }
+}
+
+module.exports = {register, login}
