@@ -36,7 +36,7 @@ const removeFile = async (req, res) => {
 const listOfFiles = async(req, res) => {
     try{
         const files = await File.find();
-        if(!files){
+        if(files.length === 0){
             return res.status(404).json({
                 message: 'Not files found'
             });

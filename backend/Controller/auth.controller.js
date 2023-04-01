@@ -1,6 +1,7 @@
 
 const User = require('../Model/user.model');
 const jwt = require('jsonwebtoken');
+const { use } = require('../Routes/file.route');
 
 const register = async(req, res) => {
     try{    
@@ -21,8 +22,17 @@ const register = async(req, res) => {
         user.password = password;
         user.role = role;
         await user.save();
+
+        const token = jwt.sign({
+            id: user._id,
+            email: user.email,
+            first_name: user.first_name,
+            last_name: user.last_name
+        }, process.env.JWT_SECRET);
+
         res.status(201).json({
-            message: 'User Registered successfully'
+            message: 'User Registered successfully',
+            token: token
         });
     }catch(err){
         res.status(500).json({
@@ -49,7 +59,7 @@ const login = async(req, res) => {
         }
         const token = jwt.sign({
             id: user._id,
-            email: user.email
+            email: user.email,
         }, process.env.JWT_SECRET);
 
         res.status(201).json({
@@ -62,4 +72,25 @@ const login = async(req, res) => {
     }
 }
 
-module.exports = {register, login}
+const getUserByToken = (req, res) => {
+    const token = req.header('Authorization');
+    if(!token){
+        return res.status(401).json({
+            message: 'Unauthorized'
+        });
+    }
+    try{
+        const decode = jwt.verify(token, process.env.JWT_SECRET);
+        res.status(201).json({
+            message: 'Success',
+            response: decode
+        })
+
+    }catch(err){
+        res.status(500).json({
+            message: 'Server Error'
+        });
+    }
+}
+
+module.exports = {register, login, getUserByToken}
