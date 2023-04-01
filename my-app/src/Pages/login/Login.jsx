@@ -1,13 +1,40 @@
+import { useState } from 'react';
 import Button from '../../Component/Button';
 import Input from '../../Component/Input';
 import Label from '../../Component/Label';
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
     const navigator = useNavigate();
+    const [ email, setEmail ] = useState('');
+    const [ password, setPassword ] = useState(''); 
 
     const registerNavigate = () => {
         navigator('/registration');
+    }
+
+    const data = {
+        "email": email,
+        "password": password
+    }
+
+    const handle_submit = () => {
+        if(email === "" && password === ""){
+            console.log('All fields are required');
+        }else{
+            axios({
+                method: 'POST',
+                url: 'http://localhost:5000/auth/login',
+                data: data
+            }).then(res => {
+                localStorage.setItem('token',res.data.token);
+                window.location.href="http://localhost:3000/dashboard";
+            }).catch(err => {
+                console.error(err);
+            });
+        }
+        
     }
     return(
         <div className="form-bg">
@@ -19,15 +46,19 @@ const Login = () => {
                         <form>
                             <Label labelName={'Email'}/>
                             <br/>
-                            <Input inputType={"email"}/>
+                            <Input inputType={"email"}
+                                    input={(e) => {setEmail(e.target.value)}}
+                                    value={email}/>
                             <br />
                             <Label labelName={'Password'}/>
                             <br/>
-                            <Input inputType={"password"}/>
+                            <Input inputType={"password"}
+                                    input={(e)=>{setPassword(e.target.value)}}
+                                    value={password}/>
                         </form>
                         <h2 className='link' onClick={registerNavigate}>You don't have an account?</h2>
                         <div className='btn-container'>
-                            <Button title={'Log In'}/>
+                            <Button title={'Log In'} action={handle_submit}/>
                         </div>
                     </div>
                 </div>

@@ -92,13 +92,4 @@ const getUserByToken = (req, res) => {
     }
 }
 
-const logout = (res, req) => {
-    res.clearCookie('token');
-
-    res.json({
-      success: true,
-      message: 'You have been logged out successfully'
-    });
-}
-
-module.exports = {register, login, getUserByToken, logout }
+module.exports = {register, login, getUserByToken }
