@@ -81,9 +81,12 @@ h1{
   font-size: 35px;
   font-weight: 800;
 }
-.already-account{
+h2{
   font-size: 20px;
   color: var(--Black);
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
   margin-top: 2% ;
 }
 .btn-container{

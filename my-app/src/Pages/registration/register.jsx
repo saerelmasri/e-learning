@@ -44,7 +44,7 @@ const Register = () => {
                             <br/>
                             <Input inputType={"password"}/> 
                         </form>
-                        <a href="#" className='already-account' onClick={loginNavigate}>You already have an account?</a>
+                        <h2 onClick={loginNavigate}>You already have an account?</h2>
                         <div className='btn-container'>
                             <Button title={'Register'}/>
                         </div>
