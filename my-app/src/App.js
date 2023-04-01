@@ -1,8 +1,12 @@
-import './App.css';
+import Register from './Pages/registration/register';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div></div>
+    <Routes>
+      <Route path='/registration' element={<Register/>}/>
+    </Routes>
+    
   );
 }
 
