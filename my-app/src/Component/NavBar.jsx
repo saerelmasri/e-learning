@@ -1,5 +1,6 @@
 import Button from '../Component/Button';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const NavBar = () => {
     const navigator = useNavigate();
 
@@ -12,6 +13,11 @@ const NavBar = () => {
     const filesNavigate = () => {
         navigator('/files');
     }
+
+    const logout = () => {
+        localStorage.clear();
+        window.location.href="http://localhost:3000/registration"; 
+    }
     return(
         <nav>
                 <div className='nav-links-container'>
@@ -20,7 +26,7 @@ const NavBar = () => {
                     <h3 onClick={filesNavigate}>Files</h3>
                 </div>
                 <div className='nav-btn-continer'>
-                    <Button title={'Log Out'}/>
+                    <Button title={'Log Out'} action={logout}/>
                 </div>
             </nav>
     );

@@ -5,7 +5,7 @@ const { use } = require('../Routes/file.route');
 
 const register = async(req, res) => {
     try{    
-        const {first_name, last_name, age, location, email, password, role} = req.body;
+        const {first_name, last_name, age, location, email, password} = req.body;
         const existingUser = await User.findOne({email});
 
         if(existingUser){
@@ -20,7 +20,6 @@ const register = async(req, res) => {
         user.location = location;
         user.email = email;
         user.password = password;
-        user.role = role;
         await user.save();
 
         const token = jwt.sign({
@@ -93,4 +92,13 @@ const getUserByToken = (req, res) => {
     }
 }
 
-module.exports = {register, login, getUserByToken}
+const logout = (res, req) => {
+    res.clearCookie('token');
+
+    res.json({
+      success: true,
+      message: 'You have been logged out successfully'
+    });
+}
+
+module.exports = {register, login, getUserByToken, logout }

@@ -1,7 +1,7 @@
 
-const Input = ({inputType}) => {
+const Input = ({inputType, input}) => {
     return(
-        <input type={inputType}/>
+        <input type={inputType} onChange={input}/>
     );
 }
 export default Input
