@@ -25,7 +25,7 @@ const Login = () => {
                             <br/>
                             <Input inputType={"password"}/>
                         </form>
-                        <h2 onClick={registerNavigate}>You don't have an account?</h2>
+                        <h2 className='link' onClick={registerNavigate}>You don't have an account?</h2>
                         <div className='btn-container'>
                             <Button title={'Log In'}/>
                         </div>

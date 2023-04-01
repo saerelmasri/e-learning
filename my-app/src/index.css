@@ -21,6 +21,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+.dashboard-bg{
+  width: 100%;
+  height: 100vh;
+  background-color: var(--RoyalPurple);
+}
 label{
   font-size: 20px;
   font-weight: 500;
@@ -34,8 +39,8 @@ input{
 }
 
 .btn-action{
-  width: 30%;
-  height: 70px;
+  width: 35%;
+  height: 60px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -43,7 +48,7 @@ input{
   color: var(--Black);
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 36px;
 }
 
@@ -81,7 +86,7 @@ h1{
   font-size: 35px;
   font-weight: 800;
 }
-h2{
+.link{
   font-size: 20px;
   color: var(--Black);
   font-weight: 500;
@@ -94,6 +99,69 @@ h2{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+nav{
+  width: 100%;
+  height: 10%;
+  background-color: var(--BlueChalk);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-links-container{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+.nav-links-container h3{
+  cursor: pointer;
+}
+.nav-btn-continer{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.course-component{
+  background-color: var(--BlueChalk);
+  width: 20%;
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 2%;
+}
+.course-component-text-box{
+  width: 90%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.course-component-btn-box{
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.enroll-btn{
+  width: 50%;
+  height: 50%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size:1vw;
+  font-weight: 600;
+  background-color: var(--RoyalPurple);
+  color: var(--White);
+}
+.enroll-btn:hover{
+  background-color: var(--Amethyst);
 }
 
 code {
