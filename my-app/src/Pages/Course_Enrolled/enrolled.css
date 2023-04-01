@@ -1,0 +1,15 @@
+.enrolled-course-box-container{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.enrolled-course-flexbox-container{
+    border-radius: 10px;
+    background-color: var(--BlueChalk);
+    width: 95%;
+    height: 95%;
+    overflow: hidden;
+}
+
