@@ -15,6 +15,11 @@ app.use('/course', courseRoute);
 const enrollRoute = require('./Routes/enrollStudent.route');
 app.use('/enroll', enrollRoute);
 
+const fileRoute = require('./Routes/file.route');
+app.use('/file', fileRoute);
+
+app.use('/uploads', express.static('uploads'));
+
 app.listen((process.env.PORT), (err)=>{
     console.log('Listening in port', process.env.PORT);
     require('./config/db.connection');
