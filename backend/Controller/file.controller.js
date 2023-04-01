@@ -19,4 +19,37 @@ const addFile = async(req, res) => {
     }
 }
 
-module.exports = addFile
+const removeFile = async (req, res) => {
+    try{
+        const { id } = req.params;
+        await File.findByIdAndDelete(id);
+        res.status(201).json({
+            message: 'File Deleted Successfully'
+        });
+    }catch(err){
+        res.status(500).json({
+            message: 'Server Error'
+        })
+    }
+}
+
+const listOfFiles = async(req, res) => {
+    try{
+        const files = await File.find();
+        if(!files){
+            return res.status(404).json({
+                message: 'Not files found'
+            });
+        }
+        res.status(201).json({
+            message: 'Success',
+            response: files
+        });
+    }catch(err){
+        res.status(500).json({
+            message: 'Server Error'
+        })
+    }
+}
+
+module.exports = { addFile, removeFile, listOfFiles }
