@@ -1,9 +1,13 @@
 import Button from '../../Component/Button';
 import Input from '../../Component/Input';
 import Label from '../../Component/Label';
-import './register.css'
+import {useNavigate} from 'react-router-dom';
 
 const Register = () => {
+    const navigator = useNavigate();
+    const loginNavigate = () => {
+        navigator('/login');
+    }
     return(
         <div className="form-bg">
             <div className="form-box-container">
@@ -40,7 +44,7 @@ const Register = () => {
                             <br/>
                             <Input inputType={"password"}/> 
                         </form>
-                        <a href="#" className='already-account'>You already have an account?</a>
+                        <a href="#" className='already-account' onClick={loginNavigate}>You already have an account?</a>
                         <div className='btn-container'>
                             <Button title={'Register'}/>
                         </div>
