@@ -74,3 +74,7 @@ document.querySelector('#listClass').onclick = () => {
 document.querySelector('#addFile').onclick = () => {
     window.location.href = 'files.html';
 }
+document.querySelector('#logoutAction').onclick = () => {
+    window.localStorage.clear();
+    window.location.href = 'index.html';
+}

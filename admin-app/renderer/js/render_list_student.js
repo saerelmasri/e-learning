@@ -45,3 +45,7 @@ document.querySelector('#addFile').onclick = () => {
     window.location.href = 'files.html';
     window.localStorage.removeItem('course_id');
 }
+document.querySelector('#logoutAction').onclick = () => {
+    window.localStorage.clear();
+    window.location.href = 'index.html';
+}
