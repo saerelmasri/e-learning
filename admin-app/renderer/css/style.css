@@ -17,7 +17,12 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  
+}
+.color-bg-dashboard{
+  background-color: var(--RoyalPurple);
+  width: 100%;
+  height: 100vh;
+  display: flex;
 }
 .admin-login-box-container{
   background-color: var(--BlueChalk);
@@ -62,12 +67,32 @@ input{
   font-size: 20px;
 }
 .admin-login-box-button{
+  border: 1px solid black;
   width: 344px;
   height: 135px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.links-box-button{
+  width: 90%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.links-box-button h1{
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 48px;
+  cursor: pointer;
+}
+.links-box-button h1:hover{
+  text-decoration: underline;
+}
+
 button{
   width: 295px;
   height: 84px;
@@ -83,4 +108,71 @@ button{
 button:hover{
   background-color: var(--Amethyst);
   color: var(--White);
+}
+.left-link-container{
+  background-color: var(--BlueChalk);
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.logo-box{
+  width: 50%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+}
+.link-container{
+  width: 90%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+h3{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  cursor: pointer;
+}
+h3:hover{
+  text-decoration: underline;
+}
+
+.right-main-container{
+  border: 1px solid black;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-course-box-container{
+  background-color: var(--BlueChalk);
+  border-radius: 10px;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.input-box-course{
+  width: 90%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.button-box-course{
+  width: 40%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

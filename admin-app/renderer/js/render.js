@@ -25,7 +25,7 @@ document.querySelector('#loginAction').onclick = (e) => {
         if(data.status === 201){
             alertSuccess("Login Successffully");
             window.localStorage.setItem('token', data['token']);
-            window.location.href = 'dashboard.html';
+            window.location.href = 'deashboard.html';
         }else{
             alertError(data['message']);
         }
