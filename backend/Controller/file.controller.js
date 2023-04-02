@@ -10,10 +10,12 @@ const addFile = async(req, res) => {
         }
         await newFile.save();
         res.status(201).json({
+            status: 201,
             message: 'File Added Successfully'
         });
     }catch(err){
         res.status(500).json({
+            status: 500,
             message: 'Server Error'
         });
     }
@@ -38,10 +40,12 @@ const listOfFiles = async(req, res) => {
         const files = await File.find();
         if(files.length === 0){
             return res.status(404).json({
+                status: 404,
                 message: 'Not files found'
             });
         }
         res.status(201).json({
+            status: 201,
             message: 'Success',
             response: files
         });
@@ -57,10 +61,12 @@ const getFileByID = async(req, res) => {
         const file = await File.findById({_id: id});
         if(!file){
             return res.status(404).json({
+                status: 404,
                 message: 'File does not exist'
             });
         }
         res.status(201).json({
+            status: 201,
             message: 'Success',
             response: file
         });
