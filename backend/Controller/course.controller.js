@@ -11,16 +11,21 @@ const addCourse = async(req, res) => {
         const existingCourse = await Course.findOne({course_code});
 
         if(existingCourse){
-            res.status(409).json({
-                message: 'Course Already Exist'
+            return res.status(409).json({
+              status: 400,
+              message: 'Course Already Exist'
             });
         }
         await newCourse.save();
         res.status(201).json({
+            status: 201,
             message: 'Course saved'
         });
     }catch(err){
-        console.log(err);
+        res.status(500).json({
+          status: 500,
+          message: err
+        })
     }
 }
 

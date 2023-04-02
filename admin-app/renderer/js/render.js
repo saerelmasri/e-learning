@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function(e){
-})
 
 const adminEmail = document.querySelector('#email');
 const adminPassword = document.querySelector('#password');
+
+
 document.querySelector('#loginAction').onclick = (e) => {
     e.preventDefault();
     if(adminEmail.value === '' || adminPassword.value === ''){
@@ -32,8 +32,8 @@ document.querySelector('#loginAction').onclick = (e) => {
     }).catch(err => {
         console.error(err);
     });
-    
-} 
+};
+
 const alertError = (message) => {
     Toastify.showToast({
         text: message,
