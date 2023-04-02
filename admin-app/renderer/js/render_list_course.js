@@ -26,7 +26,7 @@ const fetchCourses = async() => {
             btn.addEventListener("click", () => {
                 const courseID = btn.getAttribute("data-id");
                 window.localStorage.setItem('course_id',courseID);
-                window.location.href = '/details.html';
+                window.location.href = 'details.html';
             });
         });
     }).catch(err => {
@@ -35,3 +35,13 @@ const fetchCourses = async() => {
 }
 
 fetchCourses();
+
+document.querySelector('#addCourse').onclick = () => {
+    window.location.href = 'deashboard.html';
+}
+document.querySelector('#listClass').onclick = () => {
+    window.location.href = 'list_courses.html';
+}
+document.querySelector('#addFile').onclick = () => {
+    window.location.href = 'deashboard.html';
+}
