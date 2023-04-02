@@ -47,12 +47,14 @@ const login = async(req, res) => {
         //If the email doesn't exist
         if(!user){
             res.status(404).json({
+                status: 404,
                 message: 'Invalid Credentials'
             });
         }
-        const isMatch = user.matchPassword(password);
+        const isMatch = await user.matchPassword(password);
         if(!isMatch){
-            res.status(404).json({
+            return res.status(404).json({
+                status: 404,
                 message: 'Invalid Credentials'
             });
         }
@@ -62,10 +64,13 @@ const login = async(req, res) => {
         }, process.env.JWT_SECRET);
 
         res.status(201).json({
+            status: 201,
+            message: 'Success',
             token
         })
     }catch(err){
         res.status(500).json({
+            status: 500,
             message: err
         })
     }

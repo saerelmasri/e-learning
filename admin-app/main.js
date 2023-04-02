@@ -17,7 +17,7 @@ function createMainWindow() {
     });
 
 
-    //mainWindow.loadFile(path.join(__dirname, './renderer/index.html'));
+    mainWindow.loadFile(path.join(__dirname, './renderer/index.html'));
 }
 
 app.whenReady().then(() => {

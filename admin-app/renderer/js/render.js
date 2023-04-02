@@ -1,10 +1,12 @@
+document.addEventListener('DOMContentLoaded', function(e){
+})
+
 const adminEmail = document.querySelector('#email');
 const adminPassword = document.querySelector('#password');
-
 document.querySelector('#loginAction').onclick = (e) => {
     e.preventDefault();
-    if(adminEmail.value === '' || adminPassword === ''){
-        alertError('Plase Provide all required fields');
+    if(adminEmail.value === '' || adminPassword.value === ''){
+        alertError('Please Provide all required fields');
     }
     fetch('http://localhost:5000/auth/login', {
         method: 'post',
@@ -19,9 +21,10 @@ document.querySelector('#loginAction').onclick = (e) => {
     }).then((res) => {
         return res.json();
     }).then(data => {
+        console.log(data);
         if(data.status === 201){
-            alertSuccess('Login Successfully');
-            localStorage.setItem('token', data['token']);
+            alertSuccess("Login Successffully");
+            window.localStorage.setItem('token', data['token']);
             window.location.href = 'dashboard.html';
         }else{
             alertError(data['message']);
@@ -44,6 +47,7 @@ const alertError = (message) => {
     });
 }
 const alertSuccess = (message) => {
+    console.log(message);
     Toastify.showToast({
         text: message,
         duration: 5000,
