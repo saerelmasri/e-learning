@@ -1,0 +1,86 @@
+:root{
+  --BlueChalk: #E2CFEA;
+  --Amethyst: #A06CD5;
+  --RoyalPurple: #6247AA;
+  --White: #FFFFFF;
+  --Black: #000000;
+}
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Urbanist';
+}
+.color-bg{
+  background-color: var(--RoyalPurple);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.admin-login-box-container{
+  background-color: var(--BlueChalk);
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.admin-login-box-text{
+  width: 326px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-login-box-text h1{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 60px;
+}
+.admin-login-box-input{
+  width: 658px;
+  height: 295px;
+  display: flex;
+  flex-direction: column;
+}
+label{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 36px;
+}
+input{
+  width: 623px;
+  height: 57px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.admin-login-box-button{
+  width: 344px;
+  height: 135px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button{
+  width: 295px;
+  height: 84px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--White);
+}
+button:hover{
+  background-color: var(--Amethyst);
+  color: var(--White);
+}
