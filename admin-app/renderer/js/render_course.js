@@ -1,7 +1,8 @@
 const course_code = document.querySelector('#courseCode');
 const course_name = document.querySelector('#courseName');
 const instructor = document.querySelector('#courseInstructor');
-const JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk5ODU1NzJhNDhjZTdmNDNiMjAzZiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjgwNDY1Njk0fQ.f6szTgqWb3UbFtEmUIPMW8T4ZVJQSRlVOQhfWH3PpcY';
+//const JWT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0Mjk5ODU1NzJhNDhjZTdmNDNiMjAzZiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjgwNDY1Njk0fQ.f6szTgqWb3UbFtEmUIPMW8T4ZVJQSRlVOQhfWH3PpcY';
+const JWT_TOKEN =window.localStorage.getItem('token');
 
 document.querySelector('#addCourseAction').onclick = (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ document.querySelector('#addCourseAction').onclick = (e) => {
         fetch('http://localhost:5000/course/addCourse', {
             method: 'post',
             headers: {
-                'Authorization': JWT,
+                'Authorization': JWT_TOKEN,
                 Accept: 'application.json',
                 'Content-Type': 'application/json'
             },
@@ -38,8 +39,6 @@ document.querySelector('#addCourseAction').onclick = (e) => {
         });
     }
 }
-
-
 const alertError = (message) => {
     Toastify.showToast({
         text: message,
@@ -64,4 +63,14 @@ const alertSuccess = (message) => {
           textAlign: 'center'
         }
     });
+}
+
+document.querySelector('#addCourse').onclick = () => {
+    window.location.href = 'deashboard.html';
+}
+document.querySelector('#listClass').onclick = () => {
+    window.location.href = 'list_courses.html';
+}
+document.querySelector('#addFile').onclick = () => {
+    window.location.href = 'deashboard.html';
 }

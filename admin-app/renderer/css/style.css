@@ -67,7 +67,6 @@ input{
   font-size: 20px;
 }
 .admin-login-box-button{
-  border: 1px solid black;
   width: 344px;
   height: 135px;
   display: flex;
@@ -145,10 +144,17 @@ h3:hover{
 }
 
 .right-main-container{
-  border: 1px solid black;
   width: 75%;
   height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right-main-courses-container{
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -175,4 +181,49 @@ h3:hover{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 10%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 48px;
+  color: white;
+  text-decoration: underline;
+}
+.container-courses{
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}  
+.class-component{
+  margin-top: 2%;
+  width: 40%;
+  height: 50%;
+  border-radius: 10px;
+  background-color: var(--BlueChalk);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.class-component h1{
+  padding: 5%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+}
+.class-btn{
+  width: 60%;
+  height: 20%;
 }
