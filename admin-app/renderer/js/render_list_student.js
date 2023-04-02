@@ -42,6 +42,6 @@ document.querySelector('#returnAction').onclick = () => {
     window.localStorage.removeItem('course_id');
 }
 document.querySelector('#addFile').onclick = () => {
-    window.location.href = 'deashboard.html';
+    window.location.href = 'files.html';
     window.localStorage.removeItem('course_id');
 }

@@ -43,5 +43,5 @@ document.querySelector('#listClass').onclick = () => {
     window.location.href = 'list_courses.html';
 }
 document.querySelector('#addFile').onclick = () => {
-    window.location.href = 'deashboard.html';
+    window.location.href = 'files.html';
 }
