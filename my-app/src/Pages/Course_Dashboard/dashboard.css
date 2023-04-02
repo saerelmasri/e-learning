@@ -9,7 +9,6 @@
 .course-flexbox-container{
     width: 95%;
     height: 95%;
-    overflow: hidden;
     display:  flex;
     justify-content: center;
     gap: 50px;

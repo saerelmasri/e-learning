@@ -69,4 +69,39 @@ const getEnrolledStudentByID = async (req, res) => {
     }
 }
 
-module.exports = { enroll, getEnrolledStudentByID}
+const studentsInThisCouse = async(req, res) => {
+    try{
+        const { id } = req.params;
+
+        const checkUserID = await EnrolledStudent.findOne({course_id: id});
+        if(!checkUserID){
+            return res.status(404).json({
+                message: 'Student does not exist'
+            });
+        }
+
+        const enrolledUser_courses = await EnrolledStudent.find({
+            course_id: id
+        }).populate({
+            path: 'user_id',
+            select: '-password -location -age'
+        });
+
+        if(!enrolledUser_courses){
+            return res.status(404).json({
+                message: 'No courses found for this student'
+            });
+        }
+
+        res.status(201).json({
+            message: 'Success',
+            response: enrolledUser_courses
+        });
+    }catch(err){
+        res.status(500).json({
+            message: 'Server Error'
+        });
+    }
+  }
+
+module.exports = { enroll, getEnrolledStudentByID, studentsInThisCouse}
