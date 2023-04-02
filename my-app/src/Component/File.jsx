@@ -1,16 +1,19 @@
-const File = ({file_name, url}) => {
+
+const File = ({file_name, content}) => {
     const viewFile = () => {
-        window.location.href= `http://localhost:5000/${url}`; 
+        window.open(`http://localhost:5000/${content}`, '_blank');
     }
 
-    const downloadFile = (file) => {
-        const blob = new Blob([file], { type: "image/png" });
+    const downloadPdf = () => {
+        const blob = new Blob([content], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.download = file_name;
+        const link = document.createElement('a');
         link.href = url;
+        link.setAttribute('download', file_name);
+        document.body.appendChild(link);
         link.click();
-    }
+        document.body.removeChild(link);
+    };
     return(
         <div className='file-component'>
             <div className='file-component-text-box'>
@@ -18,7 +21,7 @@ const File = ({file_name, url}) => {
             </div>
             <div className='file-component-btn-box'>
                 <button className='file-btn' onClick={viewFile}>View File</button>
-                <button className='file-btn' onClick={() => downloadFile(`http://localhost:5000/${url}`)}>Download File</button>
+                <button className='file-btn' onClick={downloadPdf}>Download File</button>
             </div>
         </div>
     );

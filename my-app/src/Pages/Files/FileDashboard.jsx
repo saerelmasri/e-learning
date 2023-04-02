@@ -16,7 +16,6 @@ const Files = () => {
             }
         }).then(res => {
             setResponse(res.data.response);
-            // console.log(res.data.response);
         }).catch(err => {
             console.error(err);
         });
@@ -31,7 +30,7 @@ const Files = () => {
             <div className='file-box-container'>
                 <div className='file-flexbox-container'>
                     {response.map((res)=> {
-                        return <File file_name={res.file_name} url={res.file_content}/>
+                        return <File file_name={res.file_name} content={res.file_content}/>
                     })}
                    
                 </div>

@@ -51,5 +51,22 @@ const listOfFiles = async(req, res) => {
         })
     }
 }
+const getFileByID = async(req, res) => {
+    try{
+        const { id } = req.params;
+        const file = await File.findById({_id: id});
+        if(!file){
+            return res.status(404).json({
+                message: 'File does not exist'
+            });
+        }
+        res.status(201).json({
+            message: 'Success',
+            response: file
+        });
+    }catch(err){
+        console.error(err);
+    }
+}
 
-module.exports = { addFile, removeFile, listOfFiles }
+module.exports = { addFile, removeFile, listOfFiles, getFileByID }
