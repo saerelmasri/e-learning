@@ -9,6 +9,7 @@ const enroll = async (req, res) => {
         });
         if(alreadyEnrolled){
             return res.status(409).json({
+                status: 409,
                 message: 'Student already enrolled in this class'
             });
         }
@@ -24,6 +25,7 @@ const enroll = async (req, res) => {
         })
 
         res.status(201).json({
+            status: 201,
             message: 'Student enrolled successfully',
             response: enrolledStudents
         })

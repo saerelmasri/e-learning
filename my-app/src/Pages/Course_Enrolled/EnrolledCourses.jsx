@@ -26,7 +26,7 @@ const EnrolledCourse = () => {
 
     useEffect(()=>{
         fetchCourses()
-    }, []);
+    });
 
     return(
         <div className="dashboard-bg">

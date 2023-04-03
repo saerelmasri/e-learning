@@ -4,6 +4,7 @@ import Input from '../../Component/Input';
 import Label from '../../Component/Label';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import Toastify from 'toastify-js';
 
 const Login = () => {
     const navigator = useNavigate();
@@ -21,7 +22,7 @@ const Login = () => {
 
     const handle_submit = () => {
         if(email === "" && password === ""){
-            console.log('All fields are required');
+            alertFail('All fields are required');
         }else{
             axios({
                 method: 'POST',
@@ -31,7 +32,7 @@ const Login = () => {
                 localStorage.setItem('token',res.data.token);
                 window.location.href="http://localhost:3000/dashboard";
             }).catch(err => {
-                console.error(err);
+                alertFail(err.response.data['message']);
             });
         }
         
@@ -66,5 +67,18 @@ const Login = () => {
             
         </div>
     );
+}
+const alertFail = (message) => {
+    Toastify({
+        text: message,
+        duration: 3000,
+        close: false,
+        style: {
+          background: "red",
+          color: 'white',
+          textAlign: 'center'
+        },
+        onClick: function(){}
+      }).showToast();
 }
 export default Login;

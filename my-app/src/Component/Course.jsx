@@ -1,6 +1,6 @@
 import axios from "axios";
+import Toastify from 'toastify-js'
 const token = localStorage.getItem('token');
-
 
 const Course = ({ id, course_code, course_title, course_instructor }) => {
     console.log(id);
@@ -18,9 +18,11 @@ const Course = ({ id, course_code, course_title, course_instructor }) => {
                 'Authorization': token
             }
         }).then(res => {
-            console.log(res);
+            if(res.data['status'] === 201){
+                alertSuccess(res.data['message']);
+            }
         }).catch(err => {
-            console.error(err.response.data);
+            alertFail(err.response.data['message']);
         }); 
     }
     return(
@@ -35,5 +37,35 @@ const Course = ({ id, course_code, course_title, course_instructor }) => {
             </div>
         </div>
     );
+
+    
 }
+
+const alertSuccess = (message) => {
+    Toastify({
+        text: message,
+        duration: 3000,
+        close: false,
+        style: {
+          background: "green",
+          color: 'white',
+          textAlign: 'center'
+        },
+        onClick: function(){}
+      }).showToast();
+}
+const alertFail = (message) => {
+    Toastify({
+        text: message,
+        duration: 3000,
+        close: false,
+        style: {
+          background: "red",
+          color: 'white',
+          textAlign: 'center'
+        },
+        onClick: function(){}
+      }).showToast();
+}
+
 export default Course

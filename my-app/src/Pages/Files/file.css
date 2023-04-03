@@ -6,7 +6,6 @@
     align-items: center;
 }
 .file-flexbox-container{
-    border: 1px solid black;
     width: 95%;
     height: 95%;
     overflow: auto;

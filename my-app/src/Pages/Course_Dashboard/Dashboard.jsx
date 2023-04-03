@@ -7,8 +7,7 @@ import axios from 'axios';
 const Dashboard = () => {
     const [ response, setResponse ] = useState([]);
     const token = localStorage.getItem('token');
-
-
+    
     const fetchCourses = async() => {
         await axios({
             method:'GET',
@@ -18,7 +17,6 @@ const Dashboard = () => {
             }
         }).then(res => {
             setResponse(res.data.courses)
-            console.log(res.data.courses);
         }).catch(err => {
             console.error(err);
         })

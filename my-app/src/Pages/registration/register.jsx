@@ -4,6 +4,7 @@
     import Label from '../../Component/Label';
     import {useNavigate} from 'react-router-dom';
     import axios from 'axios';
+    import Toastify from 'toastify-js';
 
     const Register = () => {
         localStorage.clear();
@@ -31,10 +32,10 @@
         const handle_submit = () => {
 
             if(firstName === "" && lastName === "" && age === "" && location === "" && email === "" && password === "" && confirmPassword === ""){
-                console.log('All fields are required');
+                alertFail('All fields are required');
             }else{
                 if(password !== confirmPassword){
-                    console.log('Passwords do not match');
+                    alertFail('Passwords do not match');
                 }else{
                     
                     axios({
@@ -112,4 +113,17 @@
             </div>
         );
     }
+const alertFail = (message) => {
+    Toastify({
+        text: message,
+        duration: 3000,
+        close: false,
+        style: {
+          background: "red",
+          color: 'white',
+          textAlign: 'center'
+        },
+        onClick: function(){}
+      }).showToast();
+}
     export default Register;
